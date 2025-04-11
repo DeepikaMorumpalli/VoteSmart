@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+*
+{
+    font-family:"Roboto";
+    text-align: center;
+}
+.app-container { 
+  margin: 0;
+  height: 91vh; 
+  width: 100%;
+  background-image: url('home.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 4.5rem 0.7rem 4.5rem;
+  color: #003366;
+  background-color: #d5d6dc;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.logo a{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 36px;
+  color: #003366;
+  justify-content: flex-start;
+}
+
+.links{
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
+ 
+  gap: 20px;
+}
+.nav-link
+{
+  color: #003366;
+  font-weight: 600;
+  margin-left: 25px;
+}
+.logo
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image
+{
+  height: 42px;
+  width: 70px;
+  margin-right: 5px;
+}
+
+.button {
+  border-radius: 15px;
+  border-width: 0;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 17px;
+  color: #ffffff;
+  margin-left: 10px;
+  background-color: #003366;
+  width: 80px;
+}

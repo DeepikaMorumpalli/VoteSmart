@@ -1,0 +1,64 @@
+.register-main-container
+{
+    background-color: #003366;
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register-container
+{
+    margin: auto;
+    width: 700px;
+    background-color:#d5d6dc;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+
+h1{
+    color: #003366;
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2{
+    color: #ffffff;
+    /* font-size: 40px; */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#name, #age , #password , #voterId, #emailId
+{
+    width: 300px;
+    height: 40px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-width: 0;
+}
+
+.sign-in-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.sign-in-button
+{
+    border-radius: 15px;
+    border-width: 0;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #003366;
+    margin-left: 30px;
+    background-color:#d5d6dc;
+    width: 80px;
+}
