@@ -5,20 +5,21 @@ import IndexPage from './pages/IndexPage';
 import LoginPage from './pages/LoginPage';
 import Welcome from './pages/Welcome';
 import RegisterPage from './pages/RegisterPage';
-import AdminPage from './pages/AdminPage';
+import { UserContextProvider } from './UserContext';
 
 function App() {
   return (
     <> 
+      <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<IndexPage />} />
           <Route path={'/welcome'} element={<Welcome />} />
           <Route path={'/login'} element={<LoginPage />} />
           <Route path={'/register'} element={<RegisterPage />} />
-          <Route path={'/admin'} element={<AdminPage />} />
         </Route>
       </Routes>
+      </UserContextProvider>
     </>
   )
 }

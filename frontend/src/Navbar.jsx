@@ -1,6 +1,28 @@
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom"
+import { UserContext } from "./UserContext"
 
 export default function Navbar() {
+    const {setUserInfo, userInfo} = useContext(UserContext);
+    useEffect(()=>{
+        fetch(import.meta.env.VITE_API_URL+'/profile',{
+            credentials: 'include',
+        }).then(response=>{
+            response.json().then(userInfo=>{
+                setUserInfo(userInfo);
+            });
+        })
+    }, []);
+    function logout(){
+        fetch(import.meta.env.VITE_API_URL+'/logout', {
+            method: 'POST',
+            credentials: 'include',
+        })
+        setUserInfo(null);
+    }
+
+    const emailId = userInfo?.emailId;
+
     return (
         <>
             <header>
@@ -9,11 +31,22 @@ export default function Navbar() {
                     <Link to={'/welcome'}>SmartVote</Link>
                 </div>
                 <div className="links">
-                    <Link to={'/register'} className="nav-link">New Registration</Link>
-                    <Link to={'/admin'} className="nav-link">Admin</Link>
-                    <Link to={'/login'} className="nav-link">
-                        <button className='button'>Login</button>
-                    </Link>
+                    {emailId && (
+                        <>
+                            {emailId}
+                            <a onClick={logout} className="nav-link">
+                                <button className='button'>Logout</button>
+                            </a>
+                        </>
+                    )}
+                    {!emailId && (
+                        <>
+                            <Link to={'/register'} className="nav-link">New Registration</Link>
+                            <Link to={'/login'} className="nav-link">
+                                <button className='button'>Login</button>
+                            </Link>
+                        </>
+                    )}
                 </div>
             </header>
         </>

@@ -1,19 +1,29 @@
 import { useState } from "react"
 import "./RegisterPage.css"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 export default function Welcome() {
     const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [voterId, setVoterId] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
     async function register(e){
         e.preventDefault();
-        await fetch('http://localhost:4000/register', {
+        const response = await fetch(import.meta.env.VITE_API_URL+'/register', {
             method: 'POST',
-            body: JSON.stringify({emailId, password}),
+            body: JSON.stringify({name, voterId, emailId, password}),
             headers: {'Content-type':'application/json'},
         })
+        if(response.status ===200){
+            setRedirect(true);
+            alert('registration successful');
+        }else{
+            alert('registration failed');
+        }
+    }
+    if(redirect){
+        return <Navigate to={'/login'} /> 
     }
 
     return (
@@ -50,7 +60,6 @@ export default function Welcome() {
                     </button>
                 </div>
             </div>
-            
         </>
     )
 }
