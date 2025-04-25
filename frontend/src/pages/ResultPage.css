@@ -1,0 +1,25 @@
+.results-page
+{
+    background-color: #003366;
+    width: 100%;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2{
+    color: #d5d6dc;
+    font-size: 60px;
+    margin-bottom: 12px;
+}
+
+.result-declaration
+{
+    color: #d5d6dc;
+    font-size: 42px;
+}
+
+p{
+    margin-bottom: 10px;
+}

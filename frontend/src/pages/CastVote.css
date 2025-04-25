@@ -1,0 +1,21 @@
+.select-candidate
+{
+    padding: 12px;
+    background-color: #003366;
+    color: #d5d6dc;
+    font-size: 18px;
+    border-radius: 15px;
+    border-width: 0;
+}
+
+.login-input{
+    margin-bottom: 12px;
+}
+
+.fontStyles
+{
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 22px;
+}
+

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { Link , useNavigate} from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "./UserContext"
 
 export default function Navbar() {
@@ -18,13 +18,10 @@ export default function Navbar() {
         fetch(import.meta.env.VITE_API_URL + '/logout', {
             method: 'POST',
             credentials: 'include',
-        })
-        .then(() => {
+        }).then(()=>{
             setUserInfo(null);
-            localStorage.clear();
-            // sessionStorage.clear();
-            navigate('/'); 
-        });
+            navigate('/');
+        })
     }
 
     const navigate = useNavigate();
