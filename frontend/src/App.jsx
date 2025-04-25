@@ -6,8 +6,10 @@ import LoginPage from './pages/LoginPage';
 import Welcome from './pages/Welcome';
 import RegisterPage from './pages/RegisterPage';
 import { UserContextProvider } from './UserContext';
+import CastVote from './pages/CastVote';
+import ResultPage from './pages/ResultPage';
 
-function App() {
+export default function App() {
   return (
     <> 
       <UserContextProvider>
@@ -17,11 +19,11 @@ function App() {
           <Route path={'/welcome'} element={<Welcome />} />
           <Route path={'/login'} element={<LoginPage />} />
           <Route path={'/register'} element={<RegisterPage />} />
+          <Route path={'/vote'} element={<CastVote />} />
+          <Route path={'/results'} element={<ResultPage />} />
         </Route>
       </Routes>
       </UserContextProvider>
     </>
   )
 }
-
-export default App

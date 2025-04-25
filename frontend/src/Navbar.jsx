@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { UserContext } from "./UserContext"
 
 export default function Navbar() {
@@ -17,10 +17,13 @@ export default function Navbar() {
         fetch(import.meta.env.VITE_API_URL+'/logout', {
             method: 'POST',
             credentials: 'include',
+        }).then(()=>{
+            setUserInfo(null);
+            navigate('/');
         })
-        setUserInfo(null);
     }
 
+    const navigate = useNavigate();
     const emailId = userInfo?.emailId;
 
     return (

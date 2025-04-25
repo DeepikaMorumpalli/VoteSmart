@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./Welcome.css"
 export default function Welcome() {
     return (
@@ -15,6 +16,7 @@ export default function Welcome() {
                         <img src="/src/assets/SmartVote-img.jpeg" alt="image" className="welcomePage-img" />
                     </div>
                 </div>
+                <Link to={'/vote'} className='vote'>Cast Your Vote</Link>
             </div>
         </>
     )
