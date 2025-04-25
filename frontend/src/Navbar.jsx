@@ -1,26 +1,33 @@
 import { useEffect, useContext } from "react";
-import { Link } from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
 import { UserContext } from "./UserContext"
 
 export default function Navbar() {
-    const {setUserInfo, userInfo} = useContext(UserContext);
-    useEffect(()=>{
-        fetch(import.meta.env.VITE_API_URL+'/profile',{
+    const { setUserInfo, userInfo } = useContext(UserContext);
+    useEffect(() => {
+        fetch(import.meta.env.VITE_API_URL + '/profile', {
             credentials: 'include',
-        }).then(response=>{
-            response.json().then(userInfo=>{
+            method: "GET",
+        }).then(response => {
+            response.json().then(userInfo => {
                 setUserInfo(userInfo);
             });
         })
     }, []);
-    function logout(){
-        fetch(import.meta.env.VITE_API_URL+'/logout', {
+    function logout() {
+        fetch(import.meta.env.VITE_API_URL + '/logout', {
             method: 'POST',
             credentials: 'include',
         })
-        setUserInfo(null);
+        .then(() => {
+            setUserInfo(null);
+            localStorage.clear();
+            // sessionStorage.clear();
+            navigate('/'); 
+        });
     }
 
+    const navigate = useNavigate();
     const emailId = userInfo?.emailId;
 
     return (
@@ -42,6 +49,7 @@ export default function Navbar() {
                     {!emailId && (
                         <>
                             <Link to={'/register'} className="nav-link">New Registration</Link>
+                            {/* <Link to={'/admin'} className="nav-link">Admin</Link> */}
                             <Link to={'/login'} className="nav-link">
                                 <button className='button'>Login</button>
                             </Link>

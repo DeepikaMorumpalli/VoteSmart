@@ -1,21 +1,25 @@
-const express = require('express');
-const app = express();
-const cors = require('cors');
-const mongoose = require('mongoose');
-const User = require('./models/User');
 const dotenv = require('dotenv');
 dotenv.config();
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const mongoose = require('mongoose');
+const User = require('./models/User');
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
 const cookieParser = require('cookie-parser');
 
-mongoose.connect(process.env.MONGO_URL);
-
-app.use(cors({credentials: true, origin:process.env.CORS_URL}));
+app.use(cors({origin:process.env.CORS_URL, credentials:true, allowedHeaders: ['Content-Type', 'Authorization'] }));
 app.use(express.json());
 app.use(cookieParser());
+
+mongoose.connect(process.env.MONGO_URL).then(()=>{
+    console.log("connection successful");
+}).catch((e)=>{
+    console.log(e);
+});
 
 app.post('/register', async (req,res)=>{
     const {name, voterId, emailId, password} = req.body;
@@ -39,6 +43,7 @@ app.post('/login', async(req, res)=>{
     }else{
         res.status(400).json('wrong credentials');
     }
+    // res.json({ message: 'Logged in' });
 })
 
 app.get('/profile', (req,res)=>{
@@ -46,6 +51,8 @@ app.get('/profile', (req,res)=>{
     jwt.verify(token, secret, {}, (err,info)=>{
         res.json(info);
     })
+    // console.log('Profile route hit');
+    // res.json({ username: 'Madhu' });
 })
 
 app.post('/logout', (req,res)=>{
