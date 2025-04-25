@@ -4,12 +4,12 @@ export default function Welcome() {
     return (
         <>
             <div className='home-main-container'>
-                    <h1 className="heading">Welcome to Online Voting</h1>
+                    <h1 className="heading">Welcome to SmartVote !<br/> An online voting platform</h1>
                 <div className="home-container">
                     <div className="image-div-content">
                         <div className="home-content">
-                            <p className="alignment">We are committed to revolutionizing the democratic process through innovative online Voting solutions. Our platform is designed to empower individuals and organizations by providing a secure, accessible, and transparent voting experience.</p> <br />
-                            <p className="alignment">
+                            <p className="text-alignment">We are committed to revolutionizing the democratic process through innovative online Voting solutions. Our platform is designed to empower individuals and organizations by providing a secure, accessible, and transparent voting experience.</p> <br />
+                            <p className="text-alignment">
                                 We're delighted to have you join us in shaping the future through the power of your vote. Our online voting platform has been designed to make the voting process convenient secure, and accessible to all eligible participants. Whether you're casting your vote for local elections, national intiatives, or organizational decision, your matters.
                             </p>
                         </div>
@@ -18,6 +18,7 @@ export default function Welcome() {
                 </div>
                 <Link to={'/vote'} className='vote'>Cast Your Vote</Link>
             </div>
+            
         </>
     )
 }

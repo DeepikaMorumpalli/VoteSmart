@@ -20,13 +20,14 @@ export default function LoginPage(){
             response.json().then(userInfo=>{
                 setUserInfo(userInfo);
                 setRedirect(true);
+                console.log(userInfo);
             })
         } else{
             alert('wrong credentials');
         }
     }
     if(redirect){
-        return <Navigate to={'/welcome'} /> 
+        return <Navigate to={'/userDetails'} /> 
     } 
     return(
         <>
